@@ -7,7 +7,7 @@ class CommentMailerJob
       @current_person = current_person
 
       people_to_send_to.each do |person|
-        CommentMailer.notification_email(project, comments_to_send, person).deliver
+        CommentMailer.notification_email(project, comments_to_send, person).deliver_now
       end
     end
   end

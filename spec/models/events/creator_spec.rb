@@ -13,8 +13,8 @@ RSpec.describe Events::Creator, :type => :model do
     data.title = "New"
     data.description = "New Desc"
     data.location = "New Location"
-    data.start_at = new_start_at
-    data.end_at = new_end_at
+    data.start_at = new_start_at.asctime
+    data.end_at = new_end_at.asctime
   }
 
   it "doesn't add a new event" do

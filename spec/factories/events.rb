@@ -6,7 +6,7 @@ FactoryGirl.define do
     description { Faker::Lorem.paragraph }
     url { Faker::Internet.url }
     location { Faker::Lorem.words.join(" ") }
-    start_at { Time.now }
-    end_at { 2.hours.from_now }
+    start_at { Time.now.asctime }
+    end_at { 2.hours.from_now.asctime }
   end
 end
