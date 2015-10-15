@@ -133,7 +133,7 @@ GEM
     premailer-rails (1.8.2)
       actionmailer (>= 3, < 5)
       premailer (~> 1.7, >= 1.7.9)
-    pry (0.10.2)
+    pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
