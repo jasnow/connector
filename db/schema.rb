@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810233909) do
+ActiveRecord::Schema.define(version: 20151015135310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "comments", force: true do |t|
+  create_table "comments", force: :cascade do |t|
     t.string   "title",            default: ""
     t.text     "comment"
     t.integer  "commentable_id"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150810233909) do
   add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
-  create_table "events", force: true do |t|
+  create_table "events", force: :cascade do |t|
     t.text     "title"
     t.text     "description"
     t.text     "url"
@@ -42,14 +42,14 @@ ActiveRecord::Schema.define(version: 20150810233909) do
     t.datetime "updated_at"
   end
 
-  create_table "organizations", force: true do |t|
+  create_table "organizations", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "organizations_people", force: true do |t|
+  create_table "organizations_people", force: :cascade do |t|
     t.integer  "person_id",       null: false
     t.integer  "organization_id", null: false
     t.datetime "created_at"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20150810233909) do
 
   add_index "organizations_people", ["person_id", "organization_id"], name: "index_organizations_people_on_person_id_and_organization_id", using: :btree
 
-  create_table "organizations_projects", force: true do |t|
+  create_table "organizations_projects", force: :cascade do |t|
     t.integer  "organization_id", null: false
     t.integer  "project_id",      null: false
     t.datetime "created_at"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20150810233909) do
 
   add_index "organizations_projects", ["organization_id", "project_id"], name: "index_organizations_projects_on_organization_id_and_project_id", unique: true, using: :btree
 
-  create_table "people", force: true do |t|
+  create_table "people", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20150810233909) do
     t.string   "image"
   end
 
-  create_table "people_projects", force: true do |t|
+  create_table "people_projects", force: :cascade do |t|
     t.integer  "person_id",  null: false
     t.integer  "project_id", null: false
     t.datetime "created_at"
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 20150810233909) do
 
   add_index "people_projects", ["person_id", "project_id"], name: "index_people_projects_on_person_id_and_project_id", unique: true, using: :btree
 
-  create_table "projects", force: true do |t|
+  create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 20150810233909) do
     t.json     "urls",        default: []
   end
 
-  create_table "taggings", force: true do |t|
+  create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
     t.string   "taggable_type"
@@ -105,14 +105,14 @@ ActiveRecord::Schema.define(version: 20150810233909) do
   add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
   add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
-  create_table "tags", force: true do |t|
+  create_table "tags", force: :cascade do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
