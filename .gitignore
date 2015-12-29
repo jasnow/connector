@@ -19,7 +19,3 @@
 
 .DS_Store
 .idea
-
-# To not force other to use .rvmrc
-.rvmrc
-.overcommit.yml
