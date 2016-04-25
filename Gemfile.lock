@@ -54,23 +54,6 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.2)
-    celluloid (0.17.3)
-      celluloid-essentials
-      celluloid-extras
-      celluloid-fsm
-      celluloid-pool
-      celluloid-supervision
-      timers (>= 4.1.1)
-    celluloid-essentials (0.20.5)
-      timers (>= 4.1.1)
-    celluloid-extras (0.20.5)
-      timers (>= 4.1.1)
-    celluloid-fsm (0.20.5)
-      timers (>= 4.1.1)
-    celluloid-pool (0.20.5)
-      timers (>= 4.1.1)
-    celluloid-supervision (0.20.5)
-      timers (>= 4.1.1)
     coderay (1.1.1)
     concurrent-ruby (1.0.1)
     crack (0.4.3)
@@ -109,7 +92,6 @@ GEM
       activesupport (>= 4.1.0)
     hashdiff (0.3.0)
     hashie (3.4.3)
-    hitimes (1.2.3)
     htmlentities (4.3.4)
     i18n (0.7.0)
     icalendar (2.3.0)
@@ -244,14 +226,12 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sucker_punch (1.6.0)
-      celluloid (~> 0.17.2)
+    sucker_punch (2.0.2)
+      concurrent-ruby (~> 1.0.0)
     temple (0.7.6)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.2)
-    timers (4.1.1)
-      hitimes
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     tzinfo-data (1.2016.4)
@@ -297,7 +277,7 @@ DEPENDENCIES
   sass-rails
   slim-rails
   spring-commands-rspec
-  sucker_punch (= 1.6.0)
+  sucker_punch
   tzinfo-data
   uglifier
   vcr

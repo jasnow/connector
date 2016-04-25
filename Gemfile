@@ -4,7 +4,7 @@ gem 'rails', '4.2.6'
 
 # Database
 gem 'pg'
-gem 'sucker_punch', '1.6.0' # LOCKED DOWN
+gem 'sucker_punch'
 
 # Model
 gem 'acts_as_commentable'
