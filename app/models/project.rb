@@ -4,7 +4,7 @@ class Project < ActiveRecord::Base
     def validate(record)
       record.urls.each do |type, url|
         unless URL_TYPES.include?(type)
-          record.errors[:base] = "#{type} is not a valid URL type"
+          record.errors.add(:base, "#{type} is not a valid URL type")
         end
       end
     end

@@ -7,7 +7,7 @@ RSpec.describe CommentsController, :type => :controller do
   before(:each) { sign_in(user) }
 
   describe "POST create" do
-    let(:request!) { post :create, comment: "Test", project_id: project.id, imahuman: ENV["IMAHUMAN"] }
+    let(:request!) { post :create, params: { comment: "Test", project_id: project.id, imahuman: ENV["IMAHUMAN"] } }
 
     it "creates a comment" do
       expect {
@@ -27,7 +27,7 @@ RSpec.describe CommentsController, :type => :controller do
     end
 
     context "without a matching imahuman" do
-      let(:request!) { post :create, comment: "Test", project_id: project.id, imahuman: "nope" }
+      let(:request!) { post :create, params: { comment: "Test", project_id: project.id, imahuman: "nope" } }
 
       it "is forbidden" do
         expect {

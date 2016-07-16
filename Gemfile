@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.7'
+gem 'rails', '5.0.0'
 
 ruby '2.3.1'
 
@@ -10,7 +10,7 @@ gem 'sucker_punch'
 
 # Model
 gem 'acts_as_commentable'
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on' # For Rails 5
 
 # Login
 gem 'devise'

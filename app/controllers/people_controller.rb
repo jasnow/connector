@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  before_filter :login_required, only: [:edit, :update]
+  before_action :login_required, only: [:edit, :update]
 
   def has_access_to_edit?
     current_user.try!(:person) == person

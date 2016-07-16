@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_filter :verify_user_belongs_to_project, only: [:edit, :update, :destroy]
-  before_filter :verify_project_creator, only: [:destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :verify_user_belongs_to_project, only: [:edit, :update, :destroy]
+  before_action :verify_project_creator, only: [:destroy]
 
   def index
     @projects = tagged_projects.order(updated_at: :asc)
@@ -36,7 +36,7 @@ class ProjectsController < ApplicationController
 
   def update
     update_params = project_params
-    update_params.merge!(urls: construct_urls)
+    update_params = update_params.merge(urls: construct_urls)
     if project.update(update_params)
       redirect_to project
       flash[:success] = "Project successfully updated!"
