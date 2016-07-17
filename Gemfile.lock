@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/mbleigh/acts-as-taggable-on.git
-  revision: 637da61074b5bd2e0ff0be50fd683588d61c4ed1
+  revision: 8990a39c1c26f166c8006e140fb7f4ab972b5a63
   specs:
     acts-as-taggable-on (4.0.0.pre)
       activerecord (>= 4.0)
@@ -293,7 +293,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 2.3.1p112
+   ruby 2.4.0p-1
 
 BUNDLED WITH
    1.12.5

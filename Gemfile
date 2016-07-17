@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '5.0.0'
 
-ruby '2.3.1'
+ruby '2.4.0'
 
 # Database
 gem 'pg'
